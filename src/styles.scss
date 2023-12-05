@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Fonts
+$font-family: 'Saira Extra Condensed', sans-serif;;
+
+// Colors
+$white: #fff;
+$error: #976abd;
+$error-light: mix($error,$white,20%);
+
