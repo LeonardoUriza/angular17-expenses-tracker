@@ -1,0 +1,13 @@
+@use "../../../styles.scss" as s;
+
+.transaction{
+    font-family: s.$font-family;
+    background-color: s.$white;
+    border-radius: s.$main-border-radius;
+    padding: .75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: s.$main-shadow;
+
+}

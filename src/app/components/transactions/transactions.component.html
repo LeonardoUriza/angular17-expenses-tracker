@@ -1,0 +1,12 @@
+
+<div class="transactions">
+    @for(transaction of transactions; track transaction.id){
+        <app-transaction [transaction]="transaction"/>
+    }@empty {
+        <h3>No Transactions</h3>
+    }
+</div>
+   
+
+
+
