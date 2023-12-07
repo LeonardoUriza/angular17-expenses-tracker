@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 // Componentes
-import { BalanceComponent } from './components/balance/balance.component';
-import { TransactionsComponent } from './components/transactions/transactions.component';
+import { BalanceComponent } from '../../components/balance/balance.component';
+import { TransactionsComponent } from '../../components/transactions/transactions.component';
 
 // Models
 import { Balance } from '../../models/balance.model';
@@ -12,7 +12,7 @@ import { Transaction } from '../../models/transaction.model';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BalanceComponent, TransactionsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -6,11 +6,12 @@ import { Transaction } from '../../models/transaction.model';
 
 // Components
 import { TransactionComponent } from '../transaction/transaction.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [CommonModule, TransactionComponent],
+  imports: [CommonModule, TransactionComponent, RouterLink],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.scss'
 })
