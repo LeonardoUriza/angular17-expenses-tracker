@@ -1,9 +1,9 @@
 
 <div class="transactions">
     @for(transaction of transactions; track transaction.id){
-        <app-transaction [transaction]="transaction"/>
+        <app-transaction [transaction]="transaction" (removeTransactionEvent)="removeTransaction($event)"/>
     }@empty {
-        <h3>No Transactions</h3>
+        <h3 class="transactions__empty">No Transactions</h3>
     }
 </div>
    

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 // Models
 import { Transaction } from '../../models/transaction.model';
@@ -16,4 +16,9 @@ import { TransactionComponent } from '../transaction/transaction.component';
 })
 export class TransactionsComponent {
 @Input() transactions!: Transaction[];
+@Output() removeTransactionEvent = new EventEmitter<string>();
+
+removeTransaction(id: string){
+  this.removeTransactionEvent.emit(id);  
+}
 }
