@@ -1,22 +1,40 @@
 <div class="add-transaction">
     <h2>Add Transaction</h2>
-    <form class="add-transaction__form" autocomplete="off">
-        <input type="text" id="amount" class="add-transaction__amount" autofocus>
+    <form class="add-transaction__form" autocomplete="off" [formGroup]="addTransactionForm" (ngSubmit)="onSubmit()">
+        <input type="number" class="add-transaction__amount" autofocus formControlName="amount">
+        @if (addTransactionForm.get("amount")?.invalid && addTransactionForm.get("amount")?.touched) {
+            @if (addTransactionForm.get("amount")?.errors?.["required"]) {
+                <div class="add-transaction__error-message">--- Amount Required ---</div>
+            }
+            @if (addTransactionForm.get("amount")?.errors?.["pattern"]) {
+                <div class="add-transaction__error-message">--- Valid Number Required ---</div>
+            }  
+        }
         <div class="add-transaction__type">
-            <input type="radio" id="expense" name="type" value="expense" checked>
+            <input type="radio" id="expense" name="type" value="expense" formControlName="type">
             <label for="expense">Expense</label>
-            <input type="radio" id="income" name="type" value="income" >
+            <input type="radio" id="income" name="type" value="income" formControlName="type">
             <label for="income">Income</label>
         </div>
-        <select name="category" id="category">
+        <select class="add-transaction__category" formControlName="category">
+            <option value="">Select your Category</option>
             <option value="food">Food</option>
             <option value="shopping">Shopping</option>
             <option value="entertaiment">Entertaiment</option>
             <option value="payroll">Payroll</option>
         </select>
-        <input type="date" id="date">
+        @if (addTransactionForm.get("category")?.invalid && addTransactionForm.get("category")?.touched) {
+            @if (addTransactionForm.get("category")?.errors?.["required"]) {
+                <div class="add-transaction__error-message">--- Select Your Category ---</div>
+            }  
+        }
+        <input type="date" class="add-transaction__date" formControlName="date">
         <button type="submit">Save</button>
     </form>
     <a routerLink="/">Cancel</a>
+
+    <!-- <div style="border: 1px solid red; color: red;">
+        {{addTransactionForm.get("amount")?.errors | json}}
+    </div> -->
 </div>
 
