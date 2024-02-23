@@ -40,5 +40,24 @@ describe('HomeComponent', () => {
   it("should have an element with css class main", () => {
     const div = compiled.querySelector(".main");
     expect(div).toBeTruthy();
+  });
+
+  it("Should calculate balance", () =>{
+    const dummyTransactions = [
+      {id: "1", type: "income", amount: 100, category: "Payroll", date: new Date()},
+      {id: "2", type: "expense", amount: 25, category: "Food", date: new Date()},
+      {id: "3", type: "expense", amount: 10, category: "Entertaiment", date: new Date()},
+    ]
+    // Asigna las transacciones al componente
+    component.transactions = dummyTransactions;
+    // Recalcula el balance
+    component.calculateBalance();
+    // Verifica las cantidades
+    expect(component.balance.amount).toBe(65);
+    expect(component.balance.expenses).toBe(35);
+    expect(component.balance.income).toBe(100);
   })
+  
+
+
 });
